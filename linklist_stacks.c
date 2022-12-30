@@ -33,7 +33,7 @@ N insert_rear(N ptr,int data){
 N delete_front(N ptr)
 {
     if(ptr==NULL){
-        printf("list is empty ,item cannot be deleted\n");
+        printf("Stack Empty ,item cannot be popped\n");
     }
     else{
         ptr=ptr->next;
@@ -95,7 +95,7 @@ N insert_in_between(N ptr,int index,int data){
     p->next=q->next;
     p->data=data;
     q->next=p;
-    printf("noice");
+    // printf("noice");
     return ptr;
 
 
@@ -104,11 +104,12 @@ void display(N ptr){
     {N p=ptr;
 
     if(ptr==NULL){
-        printf("list is empty\n");
+        printf("stack empty is empty\n");
     }
     else
+        printf("\n");
     while(p!=NULL){
-    printf("%d\t",p->data);
+    printf("%d\n",p->data);
     p=p->next;
 }
     }
@@ -122,7 +123,7 @@ int main(){
     int item;
     int index;
     while(1){
-        printf("\nenter your choice \n1.display\n2.insert front\n3.insert rear\n4.insert in between\n5.Delete front\n6.Delete rear\n7.Delete in-between\n8.Delete value\n9.Exit\n");
+        printf("\nenter your choice \n1.display\n2.Push\n3.Pop\n4.Exit\n");
         scanf("%d",&choice);
         switch(choice){
             case 1: display(head);
@@ -131,28 +132,12 @@ int main(){
             scanf("%d",&item);
             head=insert_front(head,item);
             break;
-            case 3: printf("enter the item u wanna add\n");
-            scanf("%d",&item);
-            head=insert_rear(head,item);
-            break;
-            case 4: printf("enter the item u wanna add and index\n");
-            scanf("%d",&item);
-            scanf("%d",&index);
-            head=insert_in_between(head,index,item);
-            break;
-            case 5: head=delete_front(head);
+
+
+            case 3: head=delete_front(head);
 
             break;
-            case 6: head=delete_rear(head);
-            break;
-            case 7:printf("enter index\n");
-            scanf("%d",&index);
-            head=delete_in_between(head,index);
-            break;
-            case 8:printf("enter value u want to delete\n");
-            scanf("%d",&index);
-            head=del_value(head,index);
-            break;
+
             default: exit(0);
             break;
             }
